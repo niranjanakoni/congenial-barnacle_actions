@@ -1,0 +1,22 @@
+name: Actions
+
+on:
+  workflow_dispatch:
+    inputs: 
+      vm:
+        description: Select the Virtual Machine
+        required: true
+        default: 'ubuntu-latest'
+        type: choice
+        options:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+jobs:
+  test:
+    name: simple action to test the workflow dispatch
+    runs-on: ${{ github.event.inputs.vm }}    
+    # if: ${{ github.event.inputs.vm == 'ubuntu-latest' }}
+    steps:
+      - run: This task is run on ${{ github.event.inputs.vm }}
