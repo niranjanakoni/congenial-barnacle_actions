@@ -1,0 +1,17 @@
+name: Workflow Dispatch using Choice type 
+
+on:
+  workflow_dispatch:
+    inputs: 
+      actor:
+        description: Select the Actor
+        required: true
+        default: niranjanakoni
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.inputs.vm == 'ubuntu-latest' }}
+    steps:
+      - run: echo "This action is run by ${{ github.event.inputs.actor }}"
