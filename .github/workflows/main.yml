@@ -19,4 +19,4 @@ jobs:
     runs-on: ${{ github.event.inputs.vm }}    
     # if: ${{ github.event.inputs.vm == 'ubuntu-latest' }}
     steps:
-      - run: This task is run on ${{ github.event.inputs.vm }}
+      - run: echo "This task is run on ${{ github.event.inputs.vm }}"
