@@ -1,0 +1,17 @@
+name: Workflow Dispatch using Boolean type 
+
+on:
+  workflow_dispatch:
+    inputs: 
+      notify:
+        description: Notify of Deployment?
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.notify }}
+    steps:
+      - run: echo "Deploy to ${{ github.event.inputs.environment }}"
