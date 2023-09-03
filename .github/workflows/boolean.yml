@@ -22,6 +22,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ success() }}
     needs: notify
     environment: ${{ github.event.inputs.environment }}
     steps:
