@@ -1,4 +1,4 @@
-name: Actions
+name: Workflow Dispatch using Choice type 
 
 on:
   workflow_dispatch:
@@ -15,7 +15,6 @@ on:
 
 jobs:
   test:
-    name: simple action to test the workflow dispatch
     runs-on: ${{ github.event.inputs.vm }}    
     # if: ${{ github.event.inputs.vm == 'ubuntu-latest' }}
     steps:
