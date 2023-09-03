@@ -1,0 +1,17 @@
+name: Workflow Dispatch using Environment type 
+
+on:
+  workflow_dispatch:
+    inputs: 
+      environment:
+        description: Select the Environment
+        required: true
+        type: environment
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    # if: ${{ github.event.inputs.vm == 'ubuntu-latest' }}
+    steps:
+      - run: echo "This action is run on ${{ github.event.inputs.environment }}"
